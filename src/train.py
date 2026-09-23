@@ -13,7 +13,7 @@ from sklearn.ensemble import (
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import LinearSVC
 from sklearn.calibration import CalibratedClassifierCV
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.pipeline import Pipeline
 
 
@@ -101,7 +101,7 @@ def train_models():
             random_state=42
         ),
         'SVM': Pipeline([
-            ('scaler', StandardScaler()),
+            ('scaler', MinMaxScaler()),
             ('classifier', CalibratedClassifierCV(
                 LinearSVC(
                     random_state=42,
